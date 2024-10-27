@@ -7,21 +7,46 @@
   --foreground: #171717;
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
-}
-
-body {
-  color: var(--foreground);
-  background: var(--background);
-  font-family: Arial, Helvetica, sans-serif;
-}
-
 @layer utilities {
   .text-balance {
     text-wrap: balance;
   }
+}
+
+.bg-image {
+  background-image: url('../images/bg.webp');
+  overflow: hidden;
+}
+
+.bg-image::after {
+  background: linear-gradient(to right, #2f28b4d1, #7a1a72d1, #7a1a72d1, #2f28b4d1);
+  @apply dark:-translate-x-[50%] duration-300
+}
+
+.linear-bg {
+  background: linear-gradient(135deg, #64c5f9, #c42bb7);
+}
+
+body {
+  @apply bg-[#fafafa] dark:bg-[#181824] duration-300
+}
+
+.primary-bg {
+  @apply bg-slate-200 dark:bg-[#25273c] duration-300
+}
+
+.primary-text {
+  @apply text-slate-500 dark:text-slate-400 duration-300
+}
+
+.secondary-text {
+  @apply text-slate-800 dark:text-[#c9cbe4] duration-300
+}
+
+.primary-border {
+  @apply border-slate-400 dark:border-slate-700 duration-300
+}
+
+.secondary-border {
+  @apply border-slate-300 dark:border-slate-700 duration-300
 }
